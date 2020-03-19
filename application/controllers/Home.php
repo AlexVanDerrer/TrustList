@@ -14,19 +14,10 @@ class Home extends CI_Controller {
 		$this->load->library('session');
 		//проверка на авторизацию
 		if($this->session->user['auth'] && isset($this->session->user['user_id'])){
-			if (isset($_GET['column'])) { $column = trim($_GET['column']); } else { $column = 'fname'; }
-			if (isset($_GET['direction'])) { $direction = trim($_GET['direction']); } else { $direction = 'ASC'; }
-			
-			if ($column != '' AND $direction != '')  $this->session->direction = $direction; 
 
-			if ( $this->session->direction == 'ASC') 
-				$this->session->direction = 'DESC';
-			   else  $this->session->direction = 'ASC';
-			   
-			$direct = ['column' => $column, 'direction' => $this->session->direction];
 			// получаем данные пользователя и его контакты и передаем в вид	
 			$user = $this->home_model->get_user_data($this->session->user['user_id']);
-			$contacts = $this->home_model->get_contacts_by_user_id($this->session->user['user_id'], $direct);
+			$contacts = $this->home_model->get_contacts_by_user_id($this->session->user['user_id']);
 			$contacts_vk = $this->home_model->get_contacts_vk($this->session->user['user_id']);
 			$count = count($contacts); // общее количество контактов
 			$count_vk = count($contacts_vk); //количество контактов из ВК

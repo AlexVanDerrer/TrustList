@@ -301,8 +301,9 @@ class Backend extends CI_Controller {
 
 	public function edit_contact()
 	{
-		$response = [];
+		$response = []; 
 		$id = $this->input->post('id');
+		// TODO: !!!!!!! DRY !!!!!!!!
 		if ($this->input->post('fname') != "") {
 			$fname = $this->db->escape_str($this->input->post('fname'));
 			$res = $this->db->query("UPDATE `contacts` SET `fname`= '$fname' WHERE id=$id");
@@ -356,8 +357,6 @@ class Backend extends CI_Controller {
 
 	/**
 	 * Живой поиск
-	 * https://snipp.ru/jquery/fast-search
-	 * https://kylaksizov.ru/51-zhivoy-poisk-ajax-php.html
 	 */
 	public function ajax_search()
 	{

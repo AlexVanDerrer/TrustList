@@ -8,12 +8,12 @@ class Home_model extends CI_Model
     }
 
   
-    public function get_contacts_by_user_id(int $id = null, $array)
+    public function get_contacts_by_user_id(int $id = null)
     {
         $contacts = [];
         if ($id != null)
         {
-            $contacts = $this->db->query("SELECT * FROM contacts WHERE parent = $id AND is_show > 0 ORDER BY ".$array['column']." ".$array['direction']);
+            $contacts = $this->db->query("SELECT * FROM contacts WHERE parent = $id AND is_show > 0");
             return $contacts->result_array();
         }  
         else
