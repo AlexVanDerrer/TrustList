@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+</head>
+<body>
+<style>
+.my-table, .my-table td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.my-table tr>td {
+    width: 120px;
+}
+.my-table .table-show{
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+.show-btn-left {
+  position: absolute;
+  /*left: 0;*/
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  -webkit-transform: translateX(100px);
+  -moz-transform: translateX(100px);
+  -ms-transform: translateX(100px);
+  -o-transform: translateX(100px);
+  transform: translateX(100px);
+}
+.show-btn-right {
+  position: absolute;
+  left: 0;
+  /*right: 0;*/
+  bottom: 0;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  -webkit-transform: translateX(-100px);
+  -moz-transform: translateX(-100px);
+  -ms-transform: translateX(-100px);
+  -o-transform: translateX(-100px);
+  transform: translateX(-100px);
+}
+
+.table-show:hover .show-btn-left {
+      -webkit-transform: translateX(0px);
+      -moz-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+      -o-transform: translateX(0px);
+      transform: translateX(0px);
+      position: absolute; 
+}
+.table-show:hover .show-btn-right {
+      -webkit-transform: translateX(0px);
+      -moz-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+      -o-transform: translateX(0px);
+      transform: translateX(0px);
+      position: absolute; 
+}
+
+</style>
+
+<table class="my-table">
+    <thead>
+        <tr>
+            <td></td>
+            <td>Имя</td>
+            <td>Фамилия</td>
+            <td>Должность</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="table-show"><div class="show-btn-left"><button>Коммент</button></div></td>
+            <td>Иван</td>
+            <td>Иванович</td>
+            <td>Директор</td>
+            <td  class="table-show"><div class="show-btn-right"><button>Удалить</button></div></td>
+        </tr>
+        <tr>
+            <td class="table-show"><div class="show-btn-left"><button>Коммент</button></div></td>
+            <td>Петр</td>
+            <td>Петрович</td>
+            <td>Зам. директора</td>
+            <td  class="table-show"><div class="show-btn-right"><button>Удалить</button></div></td>
+        </tr>
+        <tr>
+            <td class="table-show"><div class="show-btn-left"><button>Коммент</button></div></td>
+            <td>Семен</td>
+            <td>Семенович</td>
+            <td>Водитель</td>
+            <td  class="table-show"><div class="show-btn-right"><button>Удалить</button></div></td>
+        </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>
